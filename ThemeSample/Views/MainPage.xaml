@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms" 
+		xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml" 
+		xmlns:prism="clr-namespace:Prism.Mvvm;assembly=Prism.Forms" 
+		prism:ViewModelLocator.AutowireViewModel="True" 
+		x:Class="ThemeSample.Views.MainPage" Title="BMI測定"
+		BackgroundColor="{DynamicResource AppBackground}" 
+		>
+	<ContentPage.Resources>
+		<ResourceDictionary>
+			<Style x:Key="LabelBase" TargetType="Label" >
+				<Setter Property="TextColor" Value="{DynamicResource BaseTextColor}" />
+			</Style>
+			<Style x:Key="NormalLabel" TargetType="Label" BasedOn="{StaticResource LabelBase}">
+				<Setter Property="FontSize" Value="{DynamicResource BaseFontSize}" />
+			</Style>
+			<Style x:Key="LargeLabel" TargetType="Label" BasedOn="{StaticResource LabelBase}">
+				<Setter Property="FontSize" Value="{DynamicResource ObjectFontSize}" />
+			</Style>
+			<Style x:Key="ObjectLabel" TargetType="Label" BasedOn="{StaticResource LargeLabel}">
+				<Setter Property="TextColor" Value="{DynamicResource ObjectTextColor}" />
+				<Setter Property="BackgroundColor" Value="{DynamicResource MainColor}" />
+				<Setter Property="VerticalTextAlignment" Value="Center" />
+				<Setter Property="HorizontalTextAlignment" Value="Center" />
+				<Setter Property="HeightRequest" Value="50" />
+				<Setter Property="Margin" Value="10,0,10,20" />
+			</Style>
+			<Style TargetType="Button">
+				<Setter Property="TextColor" Value="{DynamicResource ObjectTextColor}" />
+				<Setter Property="BackgroundColor" Value="{DynamicResource MainColor}" />
+				<Setter Property="HeightRequest" Value="46" />
+				<Setter Property="Margin" Value="10,0,10,0" />
+			</Style>
+		</ResourceDictionary>
+	</ContentPage.Resources>
+	<ContentPage.ToolbarItems>
+  		<ToolbarItem  Priority="1" Command="{Binding AlterThemeCommand}" Text="切替" />
+  	</ContentPage.ToolbarItems>
+	<StackLayout Spacing="10" Margin="10">
+		<Label Text="あなたのBMI" HorizontalOptions="Center" Style="{DynamicResource LargeLabel}" />
+		<Label Text="{Binding BmiValue,StringFormat='{0:0.0}'}" HorizontalOptions="FillAndExpand" Style="{DynamicResource ObjectLabel}"  /> 
+		<Label Text="{Binding IndexText}" IsVisible="{Binding ShowIndex}" HorizontalOptions="FillAndExpand" Style="{DynamicResource ObjectLabel}"  /> 
+		<BoxView Color="Transparent" VerticalOptions="FillAndExpand" />
+		<Grid VerticalOptions="End" Margin="0,0,0,20">
+			<Grid.ColumnDefinitions>
+				<ColumnDefinition Width="40" />
+				<ColumnDefinition Width="*" />
+				<ColumnDefinition Width="60" />
+			</Grid.ColumnDefinitions>
+			<Grid.RowDefinitions>
+				<RowDefinition Height="50" />
+				<RowDefinition Height="50" />
+			</Grid.RowDefinitions>
+			<Label Grid.Column="0" Grid.Row="0" Text="身長" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{DynamicResource NormalLabel}" />
+			<Slider Grid.Column="1" Grid.Row="0" Value="{Binding Height}" />
+			<Label Grid.Column="2" Grid.Row="0" Text="{Binding RealHeight,StringFormat='{0:0.0}cm'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Style="{DynamicResource NormalLabel}" />
+			<Label Grid.Column="0" Grid.Row="1" Text="体重" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{DynamicResource NormalLabel}" />
+			<Slider Grid.Column="1" Grid.Row="1" Value="{Binding Weight}" />
+			<Label Grid.Column="2" Grid.Row="1" Text="{Binding RealWeight,StringFormat='{0:0.0}kg'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Style="{DynamicResource NormalLabel}" />
+		</Grid>
+		<StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="End">
+			<Label Text="指標を表示する" VerticalTextAlignment="Center" Style="{DynamicResource NormalLabel}" />
+			<Switch IsToggled="{Binding ShowIndex}" />
+		</StackLayout>
+		<Button Text="計算する" VerticalOptions="End" Command="{Binding CalculateCommand}" />
+	</StackLayout>
+</ContentPage>
