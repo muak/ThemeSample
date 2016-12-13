@@ -88,6 +88,8 @@ namespace ThemeSample.Droid.Effects
 
             aSwitch.ThumbDrawable.SetTintList(thumbColors);
 
+            var ripple = aSwitch.Background as RippleDrawable;
+            ripple.SetColor(trackColors);
         }
 
         protected override void OnElementPropertyChanged(System.ComponentModel.PropertyChangedEventArgs args)
