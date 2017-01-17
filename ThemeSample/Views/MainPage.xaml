@@ -6,6 +6,7 @@
 		prism:ViewModelLocator.AutowireViewModel="True" 
 		x:Class="ThemeSample.Views.MainPage" Title="BMI測定"
 		BackgroundColor="{DynamicResource AppBackground}" 
+		AutomationId="MainPage"
 		>
 	<ContentPage.Resources>
 		<ResourceDictionary>
@@ -48,13 +49,17 @@
 	</ContentPage.Resources>
 	
 	<ContentPage.ToolbarItems>
-  		<ToolbarItem  Priority="1" Command="{Binding AlterThemeCommand}" Text="切替" />
+		<!-- テスト対象 -->
+  		<ToolbarItem AutomationId="AlterThemeButton" Priority="1" Command="{Binding AlterThemeCommand}" Text="切替" />
   	</ContentPage.ToolbarItems>
-	
+
+	<ScrollView>
 	<StackLayout Spacing="10" Margin="10">
 		<Label Text="あなたのBMI" HorizontalOptions="Center" Style="{DynamicResource LargeLabel}" />
-		<Label Text="{Binding BmiValue,StringFormat='{0:0.0}'}" HorizontalOptions="FillAndExpand" Style="{DynamicResource ObjectLabel}"  /> 
-		<Label Text="{Binding IndexText}" IsVisible="{Binding ShowIndex}" HorizontalOptions="FillAndExpand" Style="{DynamicResource ObjectLabel}"  /> 
+		<!-- テスト対象 -->
+		<Label AutomationId="BmiLabel" Text="{Binding BmiValue,StringFormat='{0:0.0}'}" HorizontalOptions="FillAndExpand" Style="{DynamicResource ObjectLabel}" />
+		<!-- テスト対象 -->
+		<Label AutomationId="IndexLabel" Text="{Binding IndexText}" IsVisible="{Binding ShowIndex}" HorizontalOptions="FillAndExpand" Style="{DynamicResource ObjectLabel}" /> 
 		<BoxView Color="Transparent" VerticalOptions="FillAndExpand" />
 		<Grid VerticalOptions="End" Margin="0,0,0,20">
 			<Grid.ColumnDefinitions>
@@ -67,16 +72,21 @@
 				<RowDefinition Height="50" />
 			</Grid.RowDefinitions>
 			<Label Grid.Column="0" Grid.Row="0" Text="身長" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{DynamicResource NormalLabel}" />
-			<Slider Grid.Column="1" Grid.Row="0" Value="{Binding Height}" />
-			<Label Grid.Column="2" Grid.Row="0" Text="{Binding RealHeight,StringFormat='{0:0}cm'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Style="{DynamicResource NormalLabel}" />
+			<!-- テスト対象 -->
+			<Slider AutomationId="HeightSlider" Grid.Column="1" Grid.Row="0" Value="{Binding Height}" />
+			<Label  AutomationId="HeightText" Grid.Column="2" Grid.Row="0" Text="{Binding RealHeight,StringFormat='{0:0}cm'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Style="{DynamicResource NormalLabel}" />
 			<Label Grid.Column="0" Grid.Row="1" Text="体重" VerticalTextAlignment="Center" HorizontalTextAlignment="End" Style="{DynamicResource NormalLabel}" />
-			<Slider Grid.Column="1" Grid.Row="1" Value="{Binding Weight}" />
-			<Label Grid.Column="2" Grid.Row="1" Text="{Binding RealWeight,StringFormat='{0:0}kg'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Style="{DynamicResource NormalLabel}" />
+			<!-- テスト対象 -->
+			<Slider AutomationId="WeightSlider" Grid.Column="1" Grid.Row="1" Value="{Binding Weight}" />
+			<Label  AutomationId="WeightText" Grid.Column="2" Grid.Row="1" Text="{Binding RealWeight,StringFormat='{0:0}kg'}" VerticalTextAlignment="Center" HorizontalTextAlignment="Start" Style="{DynamicResource NormalLabel}" />
 		</Grid>
 		<StackLayout Orientation="Horizontal" Spacing="10" HorizontalOptions="End" Margin="0,0,10,0">
 			<Label Text="指標を表示する" VerticalTextAlignment="Center" Style="{DynamicResource NormalLabel}" />
-			<Switch IsToggled="{Binding ShowIndex}" />
+			<!-- テスト対象 -->
+			<Switch AutomationId="IndexToggleSwitch" IsToggled="{Binding ShowIndex}" />
 		</StackLayout>
-		<Button Text="計算する" VerticalOptions="End" Command="{Binding CalculateCommand}" />
+		<!-- テスト対象 -->
+		<Button AutomationId="CalculateButton" Text="計算する" VerticalOptions="End" Command="{Binding CalculateCommand}" />
 	</StackLayout>
+	</ScrollView>
 </ContentPage>
