@@ -27,6 +27,10 @@ namespace ThemeSample.iOS
         {
             global::Xamarin.Forms.Forms.Init();
 
+        #if ENABLE_TEST_CLOUD
+            Xamarin.Calabash.Start();
+        #endif
+
             LoadApplication(new App(new iOSInitializer()));
 
             return base.FinishedLaunching(app, options);

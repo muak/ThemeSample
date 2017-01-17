@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeSample.iOS", "ThemeSam
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeSample.Droid", "ThemeSample.Droid\ThemeSample.Droid.csproj", "{5436FE89-51B4-40EE-A8F1-683B83C52147}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ThemeSample.UITests", "ThemeSample.UITests\ThemeSample.UITests.csproj", "{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -53,5 +55,17 @@ Global
 		{5436FE89-51B4-40EE-A8F1-683B83C52147}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
 		{5436FE89-51B4-40EE-A8F1-683B83C52147}.Debug|iPhone.ActiveCfg = Debug|Any CPU
 		{5436FE89-51B4-40EE-A8F1-683B83C52147}.Debug|iPhone.Build.0 = Debug|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Debug|iPhoneSimulator.ActiveCfg = Debug|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Debug|iPhoneSimulator.Build.0 = Debug|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Release|iPhone.ActiveCfg = Release|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Release|iPhone.Build.0 = Release|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Release|iPhoneSimulator.ActiveCfg = Release|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Release|iPhoneSimulator.Build.0 = Release|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Debug|iPhone.ActiveCfg = Debug|Any CPU
+		{1A770421-2CE1-4A43-AF9E-B1A48EFB2CEC}.Debug|iPhone.Build.0 = Debug|Any CPU
 	EndGlobalSection
 EndGlobal
